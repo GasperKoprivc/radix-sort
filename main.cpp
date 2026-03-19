@@ -65,6 +65,14 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    for (size_t i = 0; i < numbers.size(); i++) {
+        output << static_cast<int>(numbers[i]);
+        if (i + 1 < numbers.size()) {
+            output << " ";
+        }
+    }
+
+    output.close();
     input.close();
 
     return 0;
