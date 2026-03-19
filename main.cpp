@@ -22,7 +22,13 @@ int main(int argc, char* argv[]) {
             std::cerr << "ni dovoljen obseg: " << x << std::endl;
             return 1;
         }
+
         numbers.push_back(static_cast<unsigned char>(x));
+    }
+
+    if (numbers.empty()) {
+        std::cerr << "datoteka je prazna ali ne vsebuje veljavnih podatkov" << std::endl;
+        return 1;
     }
 
     input.close();
