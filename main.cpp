@@ -57,7 +57,15 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    input.close();
     radixSortBinary(numbers);
+
+    std::ofstream output("out.txt");
+    if (!output.is_open()) {
+        std::cerr << "napaka" << std::endl;
+        return 1;
+    }
+
+    input.close();
+
     return 0;
 }
