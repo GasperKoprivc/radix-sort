@@ -4,7 +4,27 @@
 
 
 void radixSortBinary(std::vector<unsigned char>& A) {
-    // TODO: implement radix sort
+    if (A.empty()) return;
+
+    std::vector<unsigned char> B(A.size());
+
+    for (int k = 0; k < 8; k++) {
+        int C[2] = {0, 0};
+
+        for (size_t i = 0; i < A.size(); i++) {
+            int bit = (A[i] >> k) & 1;
+            C[bit]++;
+        }
+
+        C[1] += C[0];
+
+        for (int i = (int)A.size() - 1; i >= 0; i--) {
+            int bit = (A[i] >> k) & 1;
+            B[--C[bit]] = A[i];
+        }
+
+        A = B;
+    }
 }
 
 
@@ -36,8 +56,8 @@ int main(int argc, char* argv[]) {
         std::cerr << "datoteka je prazna ali ne vsebuje veljavnih podatkov" << std::endl;
         return 1;
     }
-    radixSortBinary(numbers);
-    input.close();
 
+    input.close();
+    radixSortBinary(numbers);
     return 0;
 }
