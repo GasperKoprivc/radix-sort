@@ -2,6 +2,12 @@
 #include <fstream>
 #include <vector>
 
+
+void radixSortBinary(std::vector<unsigned char>& A) {
+    // TODO: implement radix sort
+}
+
+
 int main(int argc, char* argv[]) {
     if (argc != 2) {
         std::cerr << "uporaba: vaja2 <vhodna_datoteka>" << std::endl;
@@ -30,7 +36,7 @@ int main(int argc, char* argv[]) {
         std::cerr << "datoteka je prazna ali ne vsebuje veljavnih podatkov" << std::endl;
         return 1;
     }
-
+    radixSortBinary(numbers);
     input.close();
 
     return 0;
